@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastroStyle.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <title>Cadastro - C1B</title>
+
+    <script type="text/javascript">
+        $('#telefone').mask("(00) 0 0000-0000");
+        $('#cpf').mask('000.000.000-00', { reverse: true });
+        $('#valor').mask("#.##0,00", { reverse: true });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type=radio]').change(function () {
+                if (this.value == 'Sim') {
+                    $("#preco").css("display", "block");
+                }
+                else {
+                    $("#preco").css("display", "none");
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
+            document.getElementById('bairro').value = ("");
+            document.getElementById('cidade').value = ("");
+            document.getElementById('uf').value = ("");
+        }
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value = (conteudo.logradouro);
+                document.getElementById('bairro').value = (conteudo.bairro);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('uf').value = (conteudo.uf);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
+
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <form action="">
+                <h1>Cadastro</h1>
+                <input type="text" name="nome" id="nome" placeholder="Nome Completo">
+                <input type="text" placeholder="Telefone" id="telefone" name="telefone">
+                <input type="text" name="user" id="user" placeholder="Usuário">
+                <input type="text" name="cpf" id="cpf" placeholder="CPF">
+                <input type="password" name="senha" id="senha" placeholder="Senha">
+                <input type="password" name="senhaConfirm" id="senhaConfirm" placeholder="Repita sua senha">
+                <div id="endereco">
+                    <form method="get" action=".">
+                        <div class="form-aside">
+                            <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                                onblur="pesquisacep(this.value);" placeholder="CEP" required />
+                            <input name="bairro" type="text" id="bairro" size="40" placeholder="Bairro" required />
+                        </div>
+                        <div class="form-aside">
+                            <input name="rua" type="text" id="rua" size="60" placeholder="Rua" required />
+                            <input name="num" type="text" id="num" size="2" placeholder="Nº" required />
+                        </div>
+                        <input name="complemento" type="text" id="complemento" size="40" placeholder="Complemento" />
+                        <div class="form-aside">
+                            <input name="cidade" type="text" id="cidade" size="40" placeholder="Cidade" required />
+                            <input name="uf" type="text" id="uf" size="2" placeholder="UF" required />
+                        </div>
+                        <div class="barb-client">
+                            <p>Barbeiro</p>
+                            <p>Cliente</p>
+                        </div>
+                        <div class="opcoes">
+                            <input type="radio" name="group" value="Sim">
+                            <input type="radio" name="group" value="Nao" checked>
+                        </div>
+                        <div id="preco" class="none fade-in">
+                            <input type="valor" name="valor" id="valor" placeholder="Preço">
+                        </div>
+                    </form>
+                </div>
+                <button type="submit">Cadastrar</button>
+                <p>Já tem uma conta? <a href="login.html">acesse aqui</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

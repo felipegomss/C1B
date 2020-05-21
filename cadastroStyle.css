@@ -1,0 +1,134 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url('midia/bg-login.jpg');
+    background-size: cover;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: 100%;
+}
+
+.form-box{
+    background-color: whitesmoke;
+    width: 300px;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px gray solid;
+}
+
+.form-box input, .form-box #endereco input{
+    display: block;
+    margin: 5px 0 10px 0;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px #ccc solid;
+    padding: 10px;
+    opacity: 50%;
+}
+
+.form-box form h1{
+    margin: 0;
+}
+
+.form-box input:focus{
+    opacity: 100%;
+
+}
+
+.form-box button{
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #444;
+    border: 1px #ccc solid;
+    cursor: pointer;
+    color: #ccc;
+    opacity: 50%;
+}
+
+.form-box button:hover{
+    opacity: 100%;
+}
+
+.form-box button:focus{
+    opacity: 100%;
+}
+
+.form-box p, a{
+    font-weight: 200;
+    font-size: small;
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+.form-box a:focus{
+    color: #666;
+}
+
+.form-box a:hover{
+    color: #666;
+}
+
+#nome{
+    text-transform: capitalize;
+}
+
+.none{
+    display: none;
+}
+
+.barb-client, .form-aside, .opcoes{
+    display: flex;
+    justify-content: space-around;    
+}
+
+.barb-client p{
+    color: #333;
+    margin: 0;
+}
+
+#num, #uf{
+    width: 30%!important;
+    margin-left: 5px!important;
+}
+
+#cep{
+    width: 47%!important;
+    margin-right: 5px!important;
+}
+
+.fade-in, .form-box{
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
