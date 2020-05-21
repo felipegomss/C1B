@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+    <script src="test.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/86530e25de.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="main.css">
@@ -69,6 +72,7 @@
         </div>
     </nav>
 
+
     <div class="banner">
         <h1>ta precisando de um corte <br> mas não pode sair de casa?</h1>
         <p>Agende agora e um barbeiro irá até você na sua própria casa!</p>
@@ -78,137 +82,83 @@
         <div class="tit-table">
             <h2>Escolha seu horário</h2>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <td>Barbeiro</td>
-                    <td>Valor</td>
-                    <td>Agendar</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Felipe</td>
-                    <td>15,00</td>
-                    <td><a href=""><i class="fas fa-plus"></i></a></td>
-                </tr>
-            </tbody>
-        </table>
+        <form action="">
+        <div class="tela-agendar" id="#agendamento">
+
+                <label for="horario">Escolha o dia e o horário</label>
+                <input type="datetime-local" id="horario" name="horario">
+                <div class="bts">
+                    <input type="submit" value="Agendar" class="buttonAgend">
+                    <input type="submit" value="Cancelar" class="buttonCancel">
+                </div>
+
+        </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <td>Barbeiro</td>
+                        <td>Valor</td>
+                        <td>Agendar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>15,00</td>
+                        <td><input type="radio" name="EscBarbar" id="" checked></td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>15,00</td>
+                        <td><input type="radio" name="EscBarbar" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>15,00</td>
+                        <td><input type="radio" name="EscBarbar" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>15,00</td>
+                        <td><input type="radio" name="EscBarbar" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>15,00</td>
+                        <td><input type="radio" name="EscBarbar" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>15,00</td>
+                        <td><input type="radio" name="EscBarbar" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>15,00</td>
+                        <td><input type="radio" name="EscBarbar" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>15,00</td>
+                        <td><input type="radio" name="EscBarbar" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>15,00</td>
+                        <td><input type="radio" name="EscBarbar" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>Felipe</td>
+                        <td>15,00</td>
+                        <td><input type="radio" name="EscBarbar" id=""></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="divBtnForm">
+                <label value="AbrirPopUp" class="btnPopUp" id="btnPopUp">Agendar</button>
+            </div>
+        </form>
     </div>
 
     <footer>
