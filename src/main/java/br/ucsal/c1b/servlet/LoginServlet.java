@@ -1,7 +1,6 @@
 package br.ucsal.c1b.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -45,31 +44,26 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("UTF-8");
 		
-		//TODO
 		Usuario user = new Usuario();
 		UsuarioDAO dao = new UsuarioDAO();
-		user.setLogin(request.getParameter("username"));
-		user.setSenha(request.getParameter("userPassword"));
-		user.setBarbeiro((user.getLogin().equals("1") ? true : false));
-
-		if (user.getLogin() != null && !user.getLogin().isEmpty() && user.getSenha() != null
-				&& !user.getSenha().isEmpty()) {
+		user.setLogin(request.getParameter("user"));
+		user.setSenha(request.getParameter("senha"));
+		
+		if (user.getLogin() != null && !user.getLogin().trim().isEmpty() && user.getSenha() != null
+				&& !user.getSenha().trim().isEmpty()) {
 			try {
 
 				if (dao.autentication(user)) {
 					request.getSession().setAttribute("usuarioLogado", user);
-					if (!user.isBarbeiro()) {
-						response.sendRedirect("sistema/dashboard.xhtml");
-					} else {
-						response.sendRedirect("sistema/admin.jsp");
-					}
+						response.sendRedirect("sistema/index.html");
+					
 				} else {
 
-					response.sendRedirect("./index.html");
+					response.sendRedirect("./login.html");
 				}
 
 			} catch (SQLException e) {
-				response.sendRedirect("./index.html");
+				response.sendRedirect("./login.html");
 				e.printStackTrace();
 			}
 		}

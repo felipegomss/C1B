@@ -36,13 +36,13 @@ public class LoginFilter implements Filter {
 				chain.doFilter(httpServletRequest, httpServletResponse);
 		}else {
 		
-			if( httpServletRequest.getRequestURI().endsWith("index.html") ||
-					httpServletRequest.getRequestURI().endsWith("style.css") ||
-					httpServletRequest.getRequestURI().endsWith("Login")) {
+			if( httpServletRequest.getRequestURI().endsWith("login.html") ||
+					httpServletRequest.getRequestURI().endsWith("cadastro.html") ||
+					httpServletRequest.getRequestURI().endsWith("login")) {
 				chain.doFilter(request, response);
 
 			}else {
-				httpServletResponse.sendRedirect("../login.html");
+				httpServletResponse.sendRedirect("../erro.html");
 			}
 		}
 	}

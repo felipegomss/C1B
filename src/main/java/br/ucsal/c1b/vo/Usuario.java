@@ -28,6 +28,14 @@ public class Usuario {
 	
 	private String senha;
 	
+	private String valorServico;
+	
+	public String getValorServico() {
+		return valorServico;
+	}
+	public void setValorServico(String valorServico) {
+		this.valorServico = valorServico;
+	}
 	private boolean isBarbeiro;
 	
 	public String getNome() {
