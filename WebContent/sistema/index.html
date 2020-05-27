@@ -2,178 +2,157 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-    <script src="../test.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/86530e25de.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../main.css">
-    <title>Covid 1Barbeiro</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script src="../test.js"></script>
+<link
+	href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap"
+	rel="stylesheet">
+<script src="https://kit.fontawesome.com/86530e25de.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../main.css">
+<title>Covid 1Barbeiro</title>
 </head>
 
-<body>
+<body>	
+	<nav class="top-bar">
+		<a href="index.html">
+			<h1>Covid 1Barbeiro</h1>
+		</a> <a href="#agendar">
+			<h2>Agendar</h2>
+		</a>
+		<div class="simbolos">
+			<i class="fas fa-bell fa-1x">
+				<div class="notificacao">
+					<table>
+						<tr>
+							 <td><button value="excluirNotificacao">
+									<i class="fas fa-times"></i>
+								</button><a href="#" id="ntfcc"> Você tem um corte ás 15:30 <br>dia 04/06 </a></td>
+						</tr>
 
-    <nav class="top-bar">
-        <a href="index.html">
-            <h1>Covid 1Barbeiro</h1>
-        </a>
-        <a href="#agendar">
-            <h2>Agendar</h2>
-        </a>
-        <div class="simbolos">
-            <i class="fas fa-bell fa-1x">
-                <div class="notificacao">
-                    <table>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                        <tr>
-                            <td>Você tem um corte ás 15:30 <br>dia 04/06
-                        </tr>
-                    </table>
-                </div>
-            </i>
-          
-          <a href="../Logout">
-            <i class="fas fa-sign-out-alt"></i>  
-         </a>
+					</table>
+				</div>
+			</i> <a href="../Logout"> <i class="fas fa-sign-out-alt"></i>
+			</a>
 
-        </div>
-    </nav>
+		</div>
+	</nav>
 
+	<div class="popUp-notificacao">
+	<div>Corte</div>
+	<div class="bts">
+	<button type="submit" value="cancelarCorte" id="cancelarCorte" class="cancelCorteBTN">Cancelar Corte</button>
+	<button type="submit" value="fecharTela" id="fecharTela" class="cancelCorteBTN">Fechar</button>
+</div>
+	</div >
 
-    <div class="banner">
-        <h1>ta precisando de um corte <br> mas não pode sair de casa?</h1>
-        <p>Agende agora e um barbeiro irá até você na sua própria casa!</p>
-    </div>
+	<div class="banner">
+		<h1>
+			ta precisando de um corte <br> mas não pode sair de casa?
+		</h1>
+		<p>Agende agora e um barbeiro irá até você na sua própria casa!</p>
+	</div>
 
-    <div class="agendar" id="agendar">
-        <div class="tit-table">
-            <h2>Escolha seu horário</h2>
-        </div>
-        <form method="post" action="../AgendarCorte">
-        <div class="tela-agendar" id="#agendamento">
+	<div class="agendar" id="agendar">
+		<div class="tit-table">
+			<h2>Escolha seu horário</h2>
+		</div>
+		<form method="post" action="../AgendarCorte">
+			<div class="tela-agendar" id="#agendamento">
 
-                <label for="horario">Escolha o dia e o horário</label>
-                <input type="date" id="dia" name="dia">
-                 <input type="time" id="horas" name="horas">
-                <div class="bts">
-                    <input type="submit" value="Agendar" class="buttonAgend">
-                    <input type="submit" value="Cancelar" class="buttonCancel">
-                </div>
+				<label for="horario">Escolha o dia e o horário</label> <input
+					type="date" id="dia" name="dia"> <input type="time"
+					id="horas" name="horas">
+				<div class="bts">
+					<input type="submit" value="Agendar" class="buttonAgend"> <input
+						type="submit" value="Cancelar" class="buttonCancel">
+				</div>
 
-        </div>
+			</div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <td>Barbeiro</td>
-                        <td>Valor</td>
-                        <td>Agendar</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>AO CLICAR NO BARBEIRO IRA MANDAR O ID DELE PARA O BACKEND</td>
-                        <td>15,00</td>
-                        <td><input type="radio" name="idBarbeiro" id="" value="2" checked></td>
-                    </tr>
-                    <tr>
-                        <td>Felipe</td>
-                        <td>15,00</td>
-                        <td><input type="radio" name="idBarbeiro" id=""></td>
-                    </tr>
-                    <tr>
-                        <td>Felipe</td>
-                        <td>15,00</td>
-                        <td><input type="radio" name="idBarbeiro" id=""></td>
-                    </tr>
-                    <tr>
-                        <td>Felipe</td>
-                        <td>15,00</td>
-                        <td><input type="radio" name="idBarbeiro" id=""></td>
-                    </tr>
-                    <tr>
-                        <td>Felipe</td>
-                        <td>15,00</td>
-                        <td><input type="radio" name="idBarbeiro" id=""></td>
-                    </tr>
-                    <tr>
-                        <td>Felipe</td>
-                        <td>15,00</td>
-                        <td><input type="radio" name="idBarbeiro" id=""></td>
-                    </tr>
-                    <tr>
-                        <td>Felipe</td>
-                        <td>15,00</td>
-                        <td><input type="radio" name="idBarbeiro" id=""></td>
-                    </tr>
-                    <tr>
-                        <td>Felipe</td>
-                        <td>15,00</td>
-                        <td><input type="radio" name="idBarbeiro" id=""></td>
-                    </tr>
-                    <tr>
-                        <td>Felipe</td>
-                        <td>15,00</td>
-                        <td><input type="radio" name="idBarbeiro" id=""></td>
-                    </tr>
-                    <tr>
-                        <td>Felipe</td>
-                        <td>15,00</td>
-                        <td><input type="radio" name="idBarbeiro" id=""></td>
-                    </tr>
-                </tbody>
-            </table>
-             <div class="divBtnForm">
-                <label value="AbrirPopUp" class="btnPopUp" id="btnPopUp">Agendar</button>
-            </div>
-        </form>
-    </div>
+			<table>
+				<thead>
+					<tr>
+						<td>Barbeiro</td>
+						<td>Valor</td>
+						<td>Agendar</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>AO CLICAR NO BARBEIRO IRA MANDAR O ID DELE PARA O BACKEND</td>
+						<td>15,00</td>
+						<td><input type="radio" name="idBarbeiro" id="" value="2"
+							checked></td>
+					</tr>
+					<tr>
+						<td>Felipe</td>
+						<td>15,00</td>
+						<td><input type="radio" name="idBarbeiro" id=""></td>
+					</tr>
+					<tr>
+						<td>Felipe</td>
+						<td>15,00</td>
+						<td><input type="radio" name="idBarbeiro" id=""></td>
+					</tr>
+					<tr>
+						<td>Felipe</td>
+						<td>15,00</td>
+						<td><input type="radio" name="idBarbeiro" id=""></td>
+					</tr>
+					<tr>
+						<td>Felipe</td>
+						<td>15,00</td>
+						<td><input type="radio" name="idBarbeiro" id=""></td>
+					</tr>
+					<tr>
+						<td>Felipe</td>
+						<td>15,00</td>
+						<td><input type="radio" name="idBarbeiro" id=""></td>
+					</tr>
+					<tr>
+						<td>Felipe</td>
+						<td>15,00</td>
+						<td><input type="radio" name="idBarbeiro" id=""></td>
+					</tr>
+					<tr>
+						<td>Felipe</td>
+						<td>15,00</td>
+						<td><input type="radio" name="idBarbeiro" id=""></td>
+					</tr>
+					<tr>
+						<td>Felipe</td>
+						<td>15,00</td>
+						<td><input type="radio" name="idBarbeiro" id=""></td>
+					</tr>
+					<tr>
+						<td>Felipe</td>
+						<td>15,00</td>
+						<td><input type="radio" name="idBarbeiro" id=""></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="divBtnForm">
+				<label value="AbrirPopUp" class="btnPopUp" id="btnPopUp">Agendar</label>
+			</div>
+		</form>
+	</div>
 
-    <footer>
-        <p>
-            Site desenvolvido com finalidade de obtenção de nota nas matéria de Teste e Qualidade de Software e
-            Processos de Software <br>
-            Fernando Gomes <br>
-            Luis Felipe <br>
-            Marcony Souza <br>
-            Rodrigo Silvestre
-        </p>
-    </footer>
+	<footer>
+		<p>
+			Site desenvolvido com finalidade de obtenção de nota nas matéria de
+			Teste e Qualidade de Software e Processos de Software <br>
+			Fernando Gomes <br> Luis Felipe <br> Marcony Souza <br>
+			Rodrigo Silvestre
+		</p>
+	</footer>
 
 </body>
 

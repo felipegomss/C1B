@@ -125,7 +125,7 @@ public class Usuario {
 	
 	public String toString(Usuario user) {
 		 String mensagem = "";
-		if(user.isBarbeiro()) {
+		if(!user.isBarbeiro()) {
 		 mensagem += "Nome: " + "\nCidade: " + user.getCidade() + "\nBairro: " + user.getBairro() + "\nRua: "
 				+ user.getRua() + "\nNumero da casa: " + user.getNumeroCasa() + "\nComplemento: "
 				+ user.getComplemento() + "\nTelefone: " + user.getTelefone();
