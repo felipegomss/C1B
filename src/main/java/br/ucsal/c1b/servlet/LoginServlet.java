@@ -2,6 +2,8 @@ package br.ucsal.c1b.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ucsal.c1b.bo.Notificacoes;
 import br.ucsal.c1b.dao.UsuarioDAO;
+import br.ucsal.c1b.vo.Notificacao;
 import br.ucsal.c1b.vo.Usuario;
 
 /**
@@ -46,6 +50,10 @@ public class LoginServlet extends HttpServlet {
 		
 		Usuario user = new Usuario();
 		UsuarioDAO dao = new UsuarioDAO();
+		Notificacoes bo = new Notificacoes();
+		List<Notificacao> listaNotificacao = new ArrayList<Notificacao>();
+		List<Usuario> listaBarbeiros = new ArrayList<Usuario>();
+
 		user.setLogin(request.getParameter("user"));
 		user.setSenha(request.getParameter("senha"));
 		
@@ -55,7 +63,14 @@ public class LoginServlet extends HttpServlet {
 
 				if (dao.autentication(user)) {
 					request.getSession().setAttribute("usuarioLogado", user);
-						response.sendRedirect("sistema/index.html");
+	
+					listaNotificacao = bo.showNotification(user);
+					request.getSession().setAttribute("listaNotificacoes", listaNotificacao);
+					
+					listaBarbeiros = dao.listBarber(user);
+					request.getSession().setAttribute("listaBarbeiros", listaBarbeiros);
+					
+					response.sendRedirect("sistema/index.html");
 					
 				} else {
 

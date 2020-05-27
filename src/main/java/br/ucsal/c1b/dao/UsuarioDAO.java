@@ -58,7 +58,6 @@ public class UsuarioDAO {
 		Connection con = Conexao.getConnection();
 
 		try {
-			//TODO
 			String query = "INSERT INTO USUARIO( " + 
 					"ID, " + 
 					"LOGIN, " + 
@@ -100,24 +99,7 @@ public class UsuarioDAO {
 
 	}
 	
-	public void changePassword(Usuario user, String newPw) throws SQLException {
-		Connection con = Conexao.getConnection();
 
-		try {
-			
-			String query = "update usuario set senha = '" + newPw + "' where login = '"
-					+ user.getLogin() + "'";
-			
-			Statement stm = con.createStatement();
-			stm.executeQuery(query);
-			
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-	
 	public List<Usuario> listBarber(Usuario user) throws SQLException {
 		
 		Connection con = Conexao.getConnection();

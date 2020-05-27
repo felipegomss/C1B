@@ -32,3 +32,6 @@ DISCONNECT
 INSERT INTO USUARIO VALUES(2,'vivizita','vivi123','Vitoria Silva','true','(75) 9 9907-8912','49100000','SE','S\u00c3\u00a3o Crist\u00c3\u00b3v\u00c3\u00a3o','Rosa Elze','Projetada',210,'Condominio mais viver atlantico','084.413.625-74','15,00')
 COMMIT
 /*C3*/DISCONNECT
+/*C9*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C8*/DISCONNECT

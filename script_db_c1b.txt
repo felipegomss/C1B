@@ -2,7 +2,7 @@ CREATE TABLE USUARIO(
 ID identity,
 LOGIN varchar(20) not null,
 SENHA VARCHAR(255) NOT NULL,
-NOME varchar(255) not null;
+NOME varchar(255) not null,
 isBARBEIRO varchar(5) not null,
 TELEFONE VARCHAR(255) NOT NULL,
 CEP VARCHAR(20) NOT NULL,
@@ -21,7 +21,7 @@ CLIENTE_ID INT NOT NULL,
 BARBEIRO_ID INT NOT NULL,
 MENSAGEM VARCHAR(255) NOT NULL,
 DATA_MARCADA DATE NOT NULL,
-DATA_NOTIFICACAO DATE NOT NULL
+isSERVICOFEITO VARCHAR(5) NOT NULL
 )
 
 INSERT INTO USUARIO(
@@ -91,3 +91,6 @@ DEFAULT,
 'casa azul de portão de ferro',	
 '057057487407',
 '')
+
+insert into notificacao (id_notificacao, cliente_id, barbeiro_id, mensagem, data_marcada) values
+(default, 1, 2, 'Teste 123', '2020-07-20', 'false')
