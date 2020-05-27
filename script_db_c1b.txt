@@ -20,7 +20,7 @@ ID_NOTIFICACAO identity,
 CLIENTE_ID INT NOT NULL,
 BARBEIRO_ID INT NOT NULL,
 MENSAGEM VARCHAR(255) NOT NULL,
-DATA_MARCADA DATE NOT NULL,
+DATA_MARCADA VARCHAR(15) NOT NULL,
 isSERVICOFEITO VARCHAR(5) NOT NULL
 )
 
@@ -92,5 +92,5 @@ DEFAULT,
 '057057487407',
 '')
 
-insert into notificacao (id_notificacao, cliente_id, barbeiro_id, mensagem, data_marcada) values
-(default, 1, 2, 'Teste 123', '2020-07-20', 'false')
+insert into notificacao (id_notificacao, cliente_id, barbeiro_id, mensagem, DATA_MARCADA, isSERVICOFEITO) values
+(default, 1, 2, 'Teste 123', '2020-07-20 14:17:00', 'false')

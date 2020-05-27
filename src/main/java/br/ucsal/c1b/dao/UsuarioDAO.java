@@ -11,7 +11,7 @@ import br.ucsal.c1b.banco.Conexao;
 import br.ucsal.c1b.vo.Usuario;
 
 public class UsuarioDAO {
-	
+
 	public boolean autentication(Usuario user) throws SQLException {
 		Connection con = Conexao.getConnection();
 
@@ -58,38 +58,14 @@ public class UsuarioDAO {
 		Connection con = Conexao.getConnection();
 
 		try {
-			String query = "INSERT INTO USUARIO( " + 
-					"ID, " + 
-					"LOGIN, " + 
-					"SENHA, " + 
-					"NOME, " + 
-					"isBARBEIRO, " + 
-					"TELEFONE, " + 
-					"CEP, " + 
-					"ESTADO, " + 
-					"CIDADE, " + 
-					"BAIRRO, " + 
-					"RUA, " + 
-					"NUMEROCASA, " + 
-					"COMPLEMENTO, " + 
-					"CPF, "+ 
-					"VALOR)" + 
-					"VALUES " + 
-					"(DEFAULT, " + 
-					"'"+ user.getLogin() + "', " + 
-					"'"+ user.getSenha() + "', " +  
-					"'"+ user.getNome() + "', " + 
-					"'"+ user.isBarbeiro() + "', " + 
-					"'"+ user.getTelefone() + "', " +  
-					"'"+ user.getCep() + "', " + 
-					"'"+ user.getEstado() + "', " + 
-					"'"+ user.getCidade() + "', " + 
-					"'"+ user.getBairro() + "', " + 
-					"'"+ user.getRua() + "', " + 
-					"'"+ user.getNumeroCasa() + "', " + 
-					"'"+ user.getComplemento() + "', " + 
-					"'"+ user.getCpf() + "', " + 
-					"'"+ user.getValorServico() + "')";
+			String query = "INSERT INTO USUARIO( " + "ID, " + "LOGIN, " + "SENHA, " + "NOME, " + "isBARBEIRO, "
+					+ "TELEFONE, " + "CEP, " + "ESTADO, " + "CIDADE, " + "BAIRRO, " + "RUA, " + "NUMEROCASA, "
+					+ "COMPLEMENTO, " + "CPF, " + "VALOR)" + "VALUES " + "(DEFAULT, " + "'" + user.getLogin() + "', "
+					+ "'" + user.getSenha() + "', " + "'" + user.getNome() + "', " + "'" + user.isBarbeiro() + "', "
+					+ "'" + user.getTelefone() + "', " + "'" + user.getCep() + "', " + "'" + user.getEstado() + "', "
+					+ "'" + user.getCidade() + "', " + "'" + user.getBairro() + "', " + "'" + user.getRua() + "', "
+					+ "'" + user.getNumeroCasa() + "', " + "'" + user.getComplemento() + "', " + "'" + user.getCpf()
+					+ "', " + "'" + user.getValorServico() + "')";
 			Statement stm = con.createStatement();
 			stm.executeQuery(query);
 
@@ -98,15 +74,15 @@ public class UsuarioDAO {
 		}
 
 	}
-	
 
 	public List<Usuario> listBarber(Usuario user) throws SQLException {
-		
+
 		Connection con = Conexao.getConnection();
 		List<Usuario> listBarbers = new ArrayList<Usuario>();
 
 		try {
-			String query = "SELECT * FROM USUARIO WHERE CIDADE = '" + user.getCidade() + "' and isbarbeiro = 'true' ORDER BY BAIRRO";
+			String query = "SELECT * FROM USUARIO WHERE CIDADE = '" + user.getCidade()
+					+ "' and isbarbeiro = 'true' ORDER BY BAIRRO";
 			Statement stm = con.createStatement();
 			ResultSet result = stm.executeQuery(query);
 
@@ -117,7 +93,7 @@ public class UsuarioDAO {
 				userAux.setSenha(result.getString("SENHA"));
 				userAux.setBairro(result.getString("BAIRRO"));
 				userAux.setBarbeiro(result.getString("ISBARBEIRO").equalsIgnoreCase("true") ? true : false);
-				if(userAux.isBarbeiro()) {
+				if (userAux.isBarbeiro()) {
 					userAux.setValorServico(result.getString("VALOR"));
 				}
 				userAux.setCep(result.getString("CEP"));
@@ -129,16 +105,51 @@ public class UsuarioDAO {
 				userAux.setNumeroCasa(result.getString("NUMEROCASA"));
 				userAux.setRua(result.getString("RUA"));
 				userAux.setTelefone(result.getString("TELEFONE"));
-				
+
 				listBarbers.add(userAux);
-			} 
+			}
 			return listBarbers;
 
 		} catch (Exception e) {
 			throw new SQLException("Erro ao listar barbeiros");
 		}
-		
-		
+
 	}
 
+	public Usuario userInfo(Usuario user) {
+
+		Connection con = Conexao.getConnection();
+
+		try {
+			String query = "SELECT * FROM USUARIO WHERE ID = " + user.getId();
+			Statement stm = con.createStatement();
+			ResultSet result = stm.executeQuery(query);
+
+			if (result.next()) {
+				user.setId(result.getInt("ID"));
+				user.setLogin(result.getString("LOGIN"));
+				user.setSenha(result.getString("SENHA"));
+				user.setBairro(result.getString("BAIRRO"));
+				user.setBarbeiro(result.getString("ISBARBEIRO").equalsIgnoreCase("true") ? true : false);
+				if (user.isBarbeiro()) {
+					user.setValorServico(result.getString("VALOR"));
+				}
+				user.setCep(result.getString("CEP"));
+				user.setCidade(result.getString("CIDADE"));
+				user.setComplemento(result.getString("COMPLEMENTO"));
+				user.setCpf(result.getString("CPF"));
+				user.setEstado(result.getString("ESTADO"));
+				user.setNome(result.getString("NOME"));
+				user.setNumeroCasa(result.getString("NUMEROCASA"));
+				user.setRua(result.getString("RUA"));
+				user.setTelefone(result.getString("TELEFONE"));
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return user;
+
+	}
 }

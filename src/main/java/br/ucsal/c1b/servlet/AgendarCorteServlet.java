@@ -44,9 +44,12 @@ public class AgendarCorteServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		Usuario user = (Usuario) request.getSession().getAttribute("usuarioLogado");
 		Usuario barbeiro = new Usuario();
-		barbeiro.setId(Integer.parseInt(request.getParameter("barbeiroId")));
+		//TODO
+		//AO SELECIONAR UM BARBEIRO DEVERÁ MANDAR O ID DELE COMO VALOR PARA O SERVLET, AQUI EU FIZ MANUAL SÓ PARA TESTE
+		
+		barbeiro.setId(2);//Integer.parseInt(request.getParameter("idBarbeiro")));
 		Notificacao notificacao = new Notificacao();
-		notificacao.setDataMarcada(request.getParameter("horario"));
+		notificacao.setDataMarcada(request.getParameter("dia") + " " + request.getParameter("horas") + ":00");
 		Notificacoes bo = new Notificacoes();
 		
 		if(user != null && notificacao != null && barbeiro != null) {

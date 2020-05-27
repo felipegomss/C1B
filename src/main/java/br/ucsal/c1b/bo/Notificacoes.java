@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ucsal.c1b.dao.NotificacaoDAO;
+import br.ucsal.c1b.dao.UsuarioDAO;
 import br.ucsal.c1b.vo.Notificacao;
 import br.ucsal.c1b.vo.Usuario;
 
@@ -39,46 +40,19 @@ public class Notificacoes {
 	public void generateAppointment(Usuario cliente, Usuario barbeiro, Notificacao notificacao) {
 
 		try {
+			NotificacaoDAO dao = new NotificacaoDAO();
+			UsuarioDAO userDao = new UsuarioDAO();
+			barbeiro = userDao.userInfo(barbeiro);
+			cliente = userDao.userInfo(cliente);
 			String mensagem = "Você tem um corte no dia " + notificacao.getDataMarcada() + ", " + 
 					"cliente: " + cliente.getNome() + "/nbarbeiro: "
 					+ barbeiro.getNome();
 			notificacao.setMensagem(mensagem);
-			NotificacaoDAO dao = new NotificacaoDAO();
 			dao.insertAppointment(cliente, barbeiro, notificacao);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	public String clientInfo(Usuario cliente) {
-
-		String mensagem = "";
-		try {
-
-			mensagem = "Nome: " + "\nCidade: " + cliente.getCidade() + "\nBairro: " + cliente.getBairro() + "\nRua: "
-					+ cliente.getRua() + "\nNumero da casa: " + cliente.getNumeroCasa() + "\nComplemento: "
-					+ cliente.getComplemento() + "\nTelefone: " + cliente.getTelefone();
-
-		} catch (Exception e) {
-
-		}
-
-		return mensagem;
-	}
-
-	public String barberInfo(Usuario barbeiro) {
-
-		String mensagem = "";
-		try {
-
-			mensagem = "Nome: " + barbeiro.getNome() + "\nTelefone: " + barbeiro.getTelefone();
-
-		} catch (Exception e) {
-
-		}
-
-		return mensagem;
 	}
 
 }

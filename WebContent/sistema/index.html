@@ -84,11 +84,12 @@
         <div class="tit-table">
             <h2>Escolha seu horário</h2>
         </div>
-        <form action="">
+        <form method="post" action="../AgendarCorte">
         <div class="tela-agendar" id="#agendamento">
 
                 <label for="horario">Escolha o dia e o horário</label>
-                <input type="datetime-local" id="horario" name="horario">
+                <input type="date" id="dia" name="dia">
+                 <input type="time" id="horas" name="horas">
                 <div class="bts">
                     <input type="submit" value="Agendar" class="buttonAgend">
                     <input type="submit" value="Cancelar" class="buttonCancel">
@@ -108,7 +109,7 @@
                     <tr>
                         <td>AO CLICAR NO BARBEIRO IRA MANDAR O ID DELE PARA O BACKEND</td>
                         <td>15,00</td>
-                        <td><input type="radio" name="idBarbeiro" id="" checked></td>
+                        <td><input type="radio" name="idBarbeiro" id="" value="2" checked></td>
                     </tr>
                     <tr>
                         <td>Felipe</td>

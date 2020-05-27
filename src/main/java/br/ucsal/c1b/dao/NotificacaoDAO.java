@@ -11,7 +11,7 @@ import br.ucsal.c1b.banco.Conexao;
 import br.ucsal.c1b.vo.Notificacao;
 import br.ucsal.c1b.vo.Usuario;
 
-public class NotificacaoDAO {
+public class NotificacaoDAO {	
 	
 	public void hairCutFinish (Notificacao notificacao) {
 		Connection con = Conexao.getConnection();
@@ -32,6 +32,7 @@ public class NotificacaoDAO {
 		Connection con = Conexao.getConnection();
 
 		try {
+			    
 			String query = "INSERT INTO NOTIFICACAO " + "(ID_NOTIFICACAO, " + "CLIENTE_ID, " + "BARBEIRO_ID, "
 					+ "MENSAGEM, " + "DATA_MARCADA, " + "isSERVICOFEITO) " + "VALUES (DEFAULT, " + cliente.getId()
 					+ ", " + barbeiro.getId() + ", '" + notificacao.getMensagem() + "', '"
@@ -69,10 +70,10 @@ public class NotificacaoDAO {
 			String query = "";
 			
 			if (user.isBarbeiro()) {
-				query = "select mensagem from notificacao where barbeiro.id = " + user.getId()
+				query = "select * from notificacao where barbeiro_id = " + user.getId()
 						+ " and isSERVICOFEITO = 'false'";
 			} else {
-				query = "select mensagem from notificacao where cliente.id = " + user.getId()
+				query = "select * from notificacao where cliente_id = " + user.getId()
 						+ " and isSERVICOFEITO = 'false'";
 			}
 			

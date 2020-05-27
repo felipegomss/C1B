@@ -123,4 +123,16 @@ public class Usuario {
 		this.senha = senha;
 	}
 	
+	public String toString(Usuario user) {
+		 String mensagem = "";
+		if(user.isBarbeiro()) {
+		 mensagem += "Nome: " + "\nCidade: " + user.getCidade() + "\nBairro: " + user.getBairro() + "\nRua: "
+				+ user.getRua() + "\nNumero da casa: " + user.getNumeroCasa() + "\nComplemento: "
+				+ user.getComplemento() + "\nTelefone: " + user.getTelefone();
+		} else {
+			
+			mensagem = "Nome: " + user.getNome() + "\nTelefone: " + user.getTelefone();
+		}
+		return mensagem;
+	}
 }
