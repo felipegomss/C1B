@@ -57,7 +57,7 @@ public class AgendarCorteServlet extends HttpServlet {
 			try {
 				bo.generateAppointment(user, barbeiro, notificacao);
 				out.print("<script>alert('Agendado com sucesso');</script>");
-				response.sendRedirect("sistema/index.html");
+				response.sendRedirect("sistema/index.jsp");
 				
 			} catch (Exception e) {
 				out.print("<script>alert('Erro ao agendar');</script>");

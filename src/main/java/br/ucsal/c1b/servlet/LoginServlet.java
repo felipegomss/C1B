@@ -50,10 +50,6 @@ public class LoginServlet extends HttpServlet {
 		
 		Usuario user = new Usuario();
 		UsuarioDAO dao = new UsuarioDAO();
-		Notificacoes bo = new Notificacoes();
-		List<Notificacao> listaNotificacao = new ArrayList<Notificacao>();
-		List<Usuario> listaBarbeiros = new ArrayList<Usuario>();
-
 		user.setLogin(request.getParameter("user"));
 		user.setSenha(request.getParameter("senha"));
 		
@@ -63,14 +59,8 @@ public class LoginServlet extends HttpServlet {
 
 				if (dao.autentication(user)) {
 					request.getSession().setAttribute("usuarioLogado", user);
-	
-					listaNotificacao = bo.showNotification(user);
-					request.getSession().setAttribute("listaNotificacoes", listaNotificacao);
-					
-					listaBarbeiros = dao.listBarber(user);
-					request.getSession().setAttribute("listaBarbeiros", listaBarbeiros);
-					
-					response.sendRedirect("sistema/index.html");
+		
+					response.sendRedirect("sistema/index.jsp");
 					
 				} else {
 

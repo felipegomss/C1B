@@ -73,7 +73,7 @@ public class CadastroServlet extends HttpServlet {
 
 					if (dao.signUpAutentication(user)) {
 						dao.insertUser(user);
-						request.getRequestDispatcher("sistema/index.html").forward(request, response);
+						request.getRequestDispatcher("sistema/index.jsp").forward(request, response);
 						
 					} else {
 						request.getRequestDispatcher("login.html").forward(request, response);

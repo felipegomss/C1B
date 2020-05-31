@@ -11,6 +11,9 @@ import br.ucsal.c1b.banco.Conexao;
 import br.ucsal.c1b.vo.Usuario;
 
 public class UsuarioDAO {
+	
+    List<Usuario> listaBarbeiros = new ArrayList<Usuario>();
+ 
 
 	public boolean autentication(Usuario user) throws SQLException {
 		Connection con = Conexao.getConnection();
@@ -78,7 +81,6 @@ public class UsuarioDAO {
 	public List<Usuario> listBarber(Usuario user) throws SQLException {
 
 		Connection con = Conexao.getConnection();
-		List<Usuario> listBarbers = new ArrayList<Usuario>();
 
 		try {
 			String query = "SELECT * FROM USUARIO WHERE CIDADE = '" + user.getCidade()
@@ -106,9 +108,9 @@ public class UsuarioDAO {
 				userAux.setRua(result.getString("RUA"));
 				userAux.setTelefone(result.getString("TELEFONE"));
 
-				listBarbers.add(userAux);
+				listaBarbeiros.add(userAux);
 			}
-			return listBarbers;
+			return listaBarbeiros;
 
 		} catch (Exception e) {
 			throw new SQLException("Erro ao listar barbeiros");
@@ -116,12 +118,13 @@ public class UsuarioDAO {
 
 	}
 
-	public Usuario userInfo(Usuario user) {
+	public Usuario userInfo(int id) {
 
 		Connection con = Conexao.getConnection();
+		Usuario user = new Usuario();
 
 		try {
-			String query = "SELECT * FROM USUARIO WHERE ID = " + user.getId();
+			String query = "SELECT * FROM USUARIO WHERE ID = " + id;
 			Statement stm = con.createStatement();
 			ResultSet result = stm.executeQuery(query);
 
@@ -151,5 +154,13 @@ public class UsuarioDAO {
 
 		return user;
 
+	}
+
+	public List<Usuario> getListaBarbeiros() {
+		return listaBarbeiros;
+	}
+
+	public void setListaBarbeiros(List<Usuario> listaBarbeiros) {
+		this.listaBarbeiros = listaBarbeiros;
 	}
 }

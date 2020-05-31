@@ -5,7 +5,7 @@ $(document).ready(function(){
  });
 
 $(document).ready(function(){
-    $("#ntfcc").click(function(){
+	$(".ntfcc").click(function(){
         $(".popUp-notificacao").css("display", "flex");
     });
  });
