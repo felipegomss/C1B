@@ -1,0 +1,106 @@
+CREATE TABLE USUARIO(
+ID primary key,
+LOGIN varchar(20) not null,
+SENHA VARCHAR(255) NOT NULL,
+NOME varchar(255) not null,
+isBARBEIRO varchar(5) not null,
+TELEFONE VARCHAR(255) NOT NULL,
+CEP VARCHAR(20) NOT NULL,
+ESTADO VARCHAR(2) NOT NULL,
+CIDADE VARCHAR(255) NOT NULL,
+BAIRRO VARCHAR(255) NOT NULL,
+RUA VARCHAR(255) NOT NULL,
+NUMEROCASA INT NOT NULL,	
+COMPLEMENTO VARCHAR(255) NOT NULL,	
+CPF VARCHAR(22) NOT NULL,
+VALOR VARCHAR(255) NOT NULL)
+
+CREATE TABLE NOTIFICACAO(
+ID_NOTIFICACAO primary key,
+MENSAGEM VARCHAR(255) NOT NULL,
+FOREIGN KEY (ID_AGENDAMENTO) REFERENCES AGENDAMENTO(ID_NOTIFICACAO)
+)
+
+CREATE TABLE AGENDAMENTO(
+ID_AGENDAMENTO primary key,
+CLIENTE_ID INT,
+BARBEIRO_ID INT,
+DATA_MARCADA VARCHAR(15) NOT NULL,
+isSERVICOFEITO VARCHAR(5) NOT NULL,
+foreign key (CLIENTE_ID) references USUARIO(ID),
+foreign key (BARBEIRO_ID) references USUARIO(ID)
+)
+
+INSERT INTO USUARIO(
+ID,
+LOGIN,
+SENHA,
+NOME,
+isBARBEIRO,
+TELEFONE,
+CEP,
+ESTADO,
+CIDADE,
+BAIRRO,
+RUA,
+NUMEROCASA,	
+COMPLEMENTO,	
+CPF,
+VALOR) 
+VALUES
+(
+DEFAULT, 
+'admin',
+'admin',
+'Usuario teste',
+'true',
+'71 987802314',
+'42739035',
+'BA',
+'Lauro de Freitas',
+'Itinga',
+'Rua lourenço f dos santos',
+'28',	
+'predio de 3 andares',	
+'058058695407',
+'15,00')
+
+INSERT INTO USUARIO(
+ID,
+LOGIN,
+SENHA,
+NOME,
+isBARBEIRO,
+TELEFONE,
+CEP,
+ESTADO,
+CIDADE,
+BAIRRO,
+RUA,
+NUMEROCASA,	
+COMPLEMENTO,	
+CPF,
+VALOR) 
+VALUES
+(
+DEFAULT, 
+'clienteTeste',
+'admin',
+'Usuario clienteTeste',
+'false',
+'71987706124',
+'42739035',
+'BA',
+'Lauro de Freitas',
+'Itinga',
+'Rua lourenço f dos santos',
+'25',	
+'casa azul de portão de ferro',	
+'057057487407',
+'')
+
+insert into agendamento(id_agendamento, cliente_id, barbeiro_id, DATA_MARCADA, isSERVICOFEITO) values
+(default, 1, 2, '2020-07-20 14:17:00', 'false')
+
+insert into notificacao(id_notificacao, mensagem, id_agendamento) values
+(defaut, 1, 'test 123', 1)
