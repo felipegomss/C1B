@@ -103,4 +103,4 @@ insert into agendamento(id_agendamento, cliente_id, barbeiro_id, DATA_MARCADA, i
 (default, 1, 2, '2020-07-20 14:17:00', 'false')
 
 insert into notificacao(id_notificacao, mensagem, id_agendamento) values
-(defaut, 1, 'test 123', 1)
+(default, 1, 'test 123', 1)
