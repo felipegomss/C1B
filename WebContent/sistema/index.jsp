@@ -41,7 +41,7 @@
 <script src="https://kit.fontawesome.com/86530e25de.js"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="../main.css">
-<title>Covid 1Barbeiro</title>
+<title>BarbeLivery</title>
 
 <script type="text/javascript">
 </script>
@@ -58,7 +58,7 @@
 	</div >
 	<nav class="top-bar">
 		<a href="index.html">
-			<h1>Covid 1Barbeiro</h1>
+			<h1>BarbeLivery</h1>
 		</a> <a href="#agendar">
 			<h2>Agendar</h2>
 		</a>
